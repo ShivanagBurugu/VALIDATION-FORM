@@ -90,11 +90,15 @@
         <script>
             var errormessage="";
             var p="";
+            var a=0,b=0,c=0;
             function isEmail(email) {
                 var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 return regex.test(email);
             }
             $("#submitbutton").click(function(){
+                $("#email").css("border"," 2px solid black");
+                $("#phone").css("border"," 2px solid black");
+                $("#pass").css("border"," 2px solid black");
                 if($("#email").val()==""){
                     errormessage+="Email is not filled<br>";
                 }
@@ -120,6 +124,18 @@
                 else{
                     p=errormessage;
                     errormessage="";
+                    if(a){
+                        $("#email").css("border"," 2px solid red");
+                        a=0;
+                    }
+                    if(b){
+                        $("#phone").css("border"," 2px solid red");
+                        b=0;
+                    }
+                    if(c){
+                        $("#pass").css("border"," 2px solid red");
+                        c=0;
+                    }
                     $("#errors").css("color","red");
                     $("#errors").html(p);
                 }
